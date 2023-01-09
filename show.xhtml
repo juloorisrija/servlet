@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Hello World</title>
+<style>
+body{
+    background-color:aquamarine;
+    }
+</style>
+</h:head>
+<h:body>
+	<h2>Electricity Bill</h2>
+	<form>
+		<h:outputLabel for="n1" value="MeterId:" />
+		<h:outputText value="#{bill.meterId}" id="n1" />
+		<br></br>
+		<h:outputLabel for="n2" value="Consumer Name:" />
+		<h:outputText value="#{bill.name}" id="n2" />
+		<br></br>
+		<h:outputLabel for="n3" value="Current Meter Reading:" />
+		<h:outputText value="#{bill.currentMeterReading}" id="n3" />
+		<br></br>
+		<h:outputLabel for="n4" value="Previous Meter Rd:" />
+		<h:outputText value="#{bill.previousMeterReading}" id="n4" />
+		<br></br>
+		<h:outputLabel for="n5" value="Units Consumed:" />
+		<h:outputText value="#{bill.unitconsumed}" id="n5" />
+		<br></br>
+		<h:outputLabel for="n6" value="Subsidy:" />
+		<h:outputText value="#{bill.subsidy}" id="n6" />
+		<br></br>
+		<h:outputLabel for="n7" value="Amount Payable:" />
+		<h:outputText value="#{bill.result}" id="n7" />
+		<br></br>
+	</form>
+</h:body>
+</html>

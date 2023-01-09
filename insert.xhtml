@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Hello World</title>
+	<style>
+body {
+	background-color:powderblue;
+}
+</style>
+
+</h:head>
+<h:body>
+	<h3>Enter the bill details</h3>
+	<h:form>
+		<h:outputLabel for="n1" value="MeterId:" />
+		<br></br>
+		<h:inputText value="#{bill.meterId}" id="n1"></h:inputText>
+		<br></br>
+		<br></br>
+		<h:outputLabel for="n1" value="CurrentMeterReading:" />
+		<br></br>
+		<h:inputText value="#{bill.currentMeterReading}" id="n2"></h:inputText>
+		<br></br>
+		<br></br>
+		<h:outputLabel for="n1" value="PreviousMeterReading:" id="n3" />
+		<br></br>
+		<h:inputText value="#{bill.previousMeterReading}"></h:inputText>
+		<br></br>
+		<br></br>
+		<h:outputLabel for="n4" value="Zone:" />
+		<br></br>
+		<h:selectOneRadio value="#{bill.zone}">
+			<f:selectItem itemValue="Urban" itemLabel="Urban" />
+			<f:selectItem itemValue="Rural" itemLabel="Rural" />
+		</h:selectOneRadio>
+		<br></br>
+		<br></br>
+		<h:commandButton value="Calculate" action="#{bill.addData}"></h:commandButton>
+		<h:commandButton value="Fetch Data" action="#{bill.addBilldetails}"></h:commandButton>
+		<br></br>
+	</h:form>
+</h:body>
+</html>
