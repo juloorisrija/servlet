@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      <h:head>
+         <title>Hello World</title>
+      </h:head>
+      <h:body>
+      <h3>Input Text Example</h3>
+         <h:form>
+           Username:<h:inputText id="uname" value="#{user.userName}">
+           <f:validateLength minimum="4" maximum="8" />
+           </h:inputText><br></br>
+            <h:message for="pwd" style="color:red" />
+           password:<h:inputSecret id="pwd" value="#{user.password}" required="true">
+           </h:inputSecret><br></br>
+            <h:message for="pwd" style="color:red" />
+            Email: <h:inputText id="email" label="Email " value="#{user.email}"
+			required="true" >
+				<f:validator validatorId="com.training.jsf.validation.EmailValidator"/>
+			</h:inputText>
+		<h:message for="email" style="color:red" />
+		<br />
+		<br />
+           <h:commandButton value="Hello" action="#{user.sayHi}"/>
+         </h:form>
+      </h:body>
+</html>
+

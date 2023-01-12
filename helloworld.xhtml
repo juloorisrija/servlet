@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      <h:head>
+         <title>Hello World</title>
+      </h:head>
+      <h:body>
+         <h3><h:outputText value="${helloWorld.output}"/></h3>
+         <h:form>
+          <!--  <h:commandButton value="say hello" action="welcome" /> -->
+         <!-- <h:commandLink action="${test.displayPage}" value="Test">
+          <f:param name="pageId" value="test"></f:param>
+          </h:commandLink><br></br>
+          <h:commandLink action="${test.displayPage}" value="Welcome">
+          <f:param name="pageId" value="welcome"></f:param>
+          </h:commandLink>  -->
+          <!--  <h:commandLink action="#{nav.displayPage}" value="Test"/>
+          <h:commandLink action="#{nav.displayPage}" value="Welcome"/>-->
+          <h:commandLink action="welcome.xhtml?faces-redirect=true" value="WelcomePage"></h:commandLink>    
+         </h:form>
+      </h:body>
+</html>
+
