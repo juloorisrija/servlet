@@ -33,8 +33,10 @@ public class billmain {
 		return "/home1.xhtml";
 
 		}
+		
 	billList.add(new BillConstruct(meterId,currentMeterReading,previousMeterReading,zone,result));
 	return "/show.xhtml";
+	
 	}
 	public void setMeterId(int meterId)
 	{
@@ -64,11 +66,9 @@ public class billmain {
 	
 	 
 
-	public long addData() throws ClassNotFoundException, SQLException
+	public String addData() throws ClassNotFoundException, SQLException
 	{
 		Connection conn = Databaseconn.initializeDatabase();
-
-
 	    if(flag==0)
 	    {
 	        PreparedStatement st;
@@ -82,15 +82,16 @@ public class billmain {
 	            st1=conn.prepareStatement(query1);
 	            ResultSet rs = st.executeQuery();
 	        //    System.out.println(getZone());
-
+            boolean flag1=true;
 	        int temp=0;
 	            while(rs.next())
 	            {
 
 
 
-
+                  
 	                System.out.println(rs.getInt("meterId"));
+	                
 	                if(getMeterId()==rs.getInt("MeterID"))
 	                {
 
@@ -106,10 +107,12 @@ public class billmain {
 	                    if(getZone().equalsIgnoreCase("urban"))
 	                    {
 	                        result=(cmrh-pmrh)*6;
+	                        flag1=false;
 	                    }
 	                    else if(getZone().equalsIgnoreCase("rural"))
 	                    {
 	                        result=(cmrh-pmrh)*4;
+	                        flag1=false;
 
 	                    }
 
@@ -132,8 +135,12 @@ public class billmain {
 	                    st1.executeUpdate();
 	                }
 
-
+      
+	            } 
+	            if(flag1==true) {
+	            	return "/home.xhtml";
 	            }
+	            
 	            if(temp==0)
 	            {
 	                System.out.println("check me....");
@@ -146,7 +153,9 @@ public class billmain {
 	        }
 
 	    }
-	    return result;
+	    String s=String.valueOf(result);
+	    return s;
+	    
 	}
 	public long getResult() {
 	    return result;
